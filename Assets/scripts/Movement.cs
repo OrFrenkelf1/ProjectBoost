@@ -8,6 +8,10 @@ public class Movement : MonoBehaviour
     [SerializeField] float rotationThust;
     [SerializeField] AudioClip mainEngine;
 
+    [SerializeField] ParticleSystem mainEngineParticles;
+    [SerializeField] ParticleSystem leftThrusterParticles;
+    [SerializeField] ParticleSystem rightThrusterParticles;
+
     Rigidbody rb;
     AudioSource audioSource;
 
@@ -27,25 +31,63 @@ public class Movement : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Space))
         {
-            rb.AddRelativeForce(Vector3.up * mainThrust * Time.deltaTime);
-            if(!audioSource.isPlaying)
-                audioSource.PlayOneShot(mainEngine);
+            StartTruster();
         }
         else
-            audioSource.Stop();
+        {
+            StopTruster();
+        }
     }
     void ProcessRotation()
     {
         if (Input.GetKey(KeyCode.A))
         {
-            ApplyRotation(rotationThust);
+            LeftThrusterParticlePlay();
         }
         else if (Input.GetKey(KeyCode.D))
         {
-            ApplyRotation(-rotationThust);
+            RightThrusterParticlePlay();
+        }
+        else
+        {
+            StopSideParticleThrusters();
         }
     }
-
+    
+    void StartTruster()
+    {
+        rb.AddRelativeForce(Vector3.up * mainThrust * Time.deltaTime);
+        if (!audioSource.isPlaying)
+            audioSource.PlayOneShot(mainEngine);
+        if (!mainEngineParticles.isPlaying)
+            mainEngineParticles.Play();
+    }
+    void StopTruster()
+    {
+        audioSource.Stop();
+        mainEngineParticles.Stop();
+    }
+    void LeftThrusterParticlePlay()
+    {
+        ApplyRotation(rotationThust);
+        if (!leftThrusterParticles.isPlaying)
+        {
+            leftThrusterParticles.Play();
+        }
+    }
+    void RightThrusterParticlePlay()
+    {
+        ApplyRotation(-rotationThust);
+        if (!rightThrusterParticles.isPlaying)
+        {
+            rightThrusterParticles.Play();
+        }
+    }
+    void StopSideParticleThrusters()
+    {
+        rightThrusterParticles.Stop();
+        leftThrusterParticles.Stop();
+    }
     private void ApplyRotation(float rotationThisFrame)
     {
         rb.freezeRotation = true; //Freezing rotation to manualy rotate
