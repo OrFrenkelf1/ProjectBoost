@@ -727,6 +727,9 @@ MonoBehaviour:
   mainThrust: 1000
   rotationThust: 100
   mainEngine: {fileID: 8300000, guid: 8ef532f1cf51a374fb72237ec22e0f68, type: 3}
+  mainEngineParticles: {fileID: 1366502345208398142}
+  leftThrusterParticles: {fileID: 1711367869269460440}
+  rightThrusterParticles: {fileID: 4157184931950112348}
 --- !u!114 &8363810269504521032
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1242,6 +1245,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4940884351362868, guid: a3553fd250eb92d4091bebde350c6739, type: 3}
   m_PrefabInstance: {fileID: 1173470455588596802}
   m_PrefabAsset: {fileID: 0}
+--- !u!198 &1366502345208398142 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 198100719057022332, guid: a3553fd250eb92d4091bebde350c6739, type: 3}
+  m_PrefabInstance: {fileID: 1173470455588596802}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2296046438851828666
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1304,6 +1312,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 771087676723270698, guid: d4b06ebeeaf0ac044aeed997d98443c2, type: 3}
   m_PrefabInstance: {fileID: 2296046438851828666}
   m_PrefabAsset: {fileID: 0}
+--- !u!198 &1711367869269460440 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 584678573886053986, guid: d4b06ebeeaf0ac044aeed997d98443c2, type: 3}
+  m_PrefabInstance: {fileID: 2296046438851828666}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3579371850401886270
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1361,6 +1374,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d4b06ebeeaf0ac044aeed997d98443c2, type: 3}
+--- !u!198 &4157184931950112348 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 584678573886053986, guid: d4b06ebeeaf0ac044aeed997d98443c2, type: 3}
+  m_PrefabInstance: {fileID: 3579371850401886270}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4260140900240925716 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 771087676723270698, guid: d4b06ebeeaf0ac044aeed997d98443c2, type: 3}

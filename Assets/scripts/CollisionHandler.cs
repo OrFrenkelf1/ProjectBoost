@@ -15,7 +15,7 @@ public class CollisionHandler : MonoBehaviour
     bool collisionDisabled = false;
 
     AudioSource audioSource;
-
+    
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
@@ -72,7 +72,8 @@ public class CollisionHandler : MonoBehaviour
         successParticle.Play();
         GetComponent<Movement>().enabled = false;
         audioSource.PlayOneShot(succsessSound);
-        Invoke("LoadNextLevel", invokeDelay);
+        //Invoke("LoadNextLevel", invokeDelay);
+        Invoke(nameof(LoadNextLevel), invokeDelay);
     }
     void ReloadLevel()
     {
@@ -83,9 +84,10 @@ public class CollisionHandler : MonoBehaviour
     void LoadNextLevel()
     {
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        int nextSceneIndex = currentSceneIndex++;
+        int nextSceneIndex = currentSceneIndex +1;
         if (nextSceneIndex == SceneManager.sceneCountInBuildSettings)
             nextSceneIndex = 0;
         SceneManager.LoadScene(nextSceneIndex);
     }
+
 }
